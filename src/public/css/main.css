@@ -1,0 +1,54 @@
+body {
+    background: #cb2d3e;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #ef473a, #cb2d3e);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #ef473a, #cb2d3e);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.logo {
+    width: 30%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    font-family: Helvetica;
+    width: 480px;
+    margin: 0 auto;
+}
+
+ul {
+    list-style: none;
+}
+
+#menu li>a {
+    background-color: grey;
+    color: white;
+    padding: 10px;
+    display: block;
+    text-decoration: none;
+    min-width: 100px;
+}
+
+#menu li>a:hover {
+    color: #000;
+    background-color: #eaeaea;
+}
+
+#menu>li {
+    float: left;
+    text-align: center
+}
+
+#menu>li>ul {
+    display: none;
+}
+
+#menu>li:hover>ul {
+    display: block;
+}

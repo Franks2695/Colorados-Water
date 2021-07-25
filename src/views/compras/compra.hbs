@@ -1,0 +1,26 @@
+{{#each errors }}
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        {{text}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+{{/each}}
+
+<div class="col-md-4 mx-auto">
+    <div class="card">
+    <div class="card-header">
+        <h3>PRODUCTOS</h3>
+    </div>
+    <div class="card-body">
+        <form action="/compras/compra" method="POST">
+            <div class="mt-3">
+                <input type="text" name="producto" class="form-control" placeholder="Escriba el número de productos" autofocus>
+            </div>
+            <div class="mt-3">
+                <button class="btn btn-primary w-100" type="submit">
+                    COMPRAR
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+</div>
