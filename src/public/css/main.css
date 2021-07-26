@@ -5,6 +5,7 @@ body {
     /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #ef473a, #cb2d3e);
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    font-family: 'Open Sans', sans-serif;
 }
 
 .logo {
@@ -16,39 +17,38 @@ body {
     padding: 0;
 }
 
-header {
-    font-family: Helvetica;
-    width: 480px;
-    margin: 0 auto;
+.card1 {
+    flex-direction: row;
+    align-items: center;
 }
 
-ul {
-    list-style: none;
+.card-title1 {
+    font-weight: bold;
 }
 
-#menu li>a {
-    background-color: grey;
-    color: white;
-    padding: 10px;
-    display: block;
-    text-decoration: none;
-    min-width: 100px;
+.card1 img {
+    width: 30%;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: calc(0.25rem - 1px);
 }
 
-#menu li>a:hover {
-    color: #000;
-    background-color: #eaeaea;
+@media only screen and (max-width: 300px) {
+    a1 {
+        display: none;
+    }
+    .card-body1 {
+        padding: 0.5em 1.2em;
+    }
+    .card-body1 .card-text1 {
+        margin: 0;
+    }
+    .card1 img {
+        width: 50%;
+    }
 }
 
-#menu>li {
-    float: left;
-    text-align: center
-}
-
-#menu>li>ul {
-    display: none;
-}
-
-#menu>li:hover>ul {
-    display: block;
+@media only screen and (max-width: 1200px) {
+    .card1 img {
+        width: 40%;
+    }
 }

@@ -1,19 +1,19 @@
 <div class="row">
-    {{#each facturas}}    
+    {{#each predicciones_compras}}    
         <div class="col-md-6">
             <div class="card mx-auto">
                 <div class="card-body">
                     <h4 class="card-title d-flex justify-content-between align-items-center">
-                        NOMBRE   : {{nombre}} <a href="/compras/edit/{{_id}}"><i class="fas fa-print"></i></a>
+                        NÚMERO DE VENTAS   : {{ventas2}} <a href="/compras/edit/{{_id}}"><i class="fas fa-print"></i></a>
                     </h4>
                     <h4 class="card-title">
-                        CÉDULA   : {{cedula}}
-                    </h4>
+                        MONTO DE VENTAS   : {{monto_compras}}
+                    </h4><br>
                     <h4 class="card-title">
-                        DIRECCIÓN: {{direccion}}
-                    </h4>
-                    <h4 class="card-title">
-                        TELÉFONO : {{telefono}}
+                        Según el número de ventas y el monto de ventas se predice que se tendrá un monto de compras de   : 
+                    </h4><br>
+                    <h4 class="card-title text-center">
+                        {{prediccion}}
                     </h4>
                     <form action="/compras/delete/{{_id}}?_method=DELETE" method="POST">
                         <input type="hidden" name="_method" value="DELETE">
@@ -28,8 +28,8 @@
     {{else}}
         <div class="card text-center">
             <div class="card-body">
-                <p class="lead">No hay facturas aún</p>
-                <a href="/productos" class="btn btn-success w-100">Haz tu compra!</a>
+                <p class="lead">No hay predicciones aún</p>
+                <a href="/prediccion" class="btn btn-success w-100">Haz tu preducción!</a>
             </div>
         </div>
     {{/each}}

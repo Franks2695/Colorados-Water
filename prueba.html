@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name=viewport content="width=device-width, initial-scale=1">
+    <title>Graphs of Probability Distributions</title>
+    <link rel="stylesheet" href="standard.css" type="text/css" />
+    <script src="../../brython/brython.js"></script>
+    <script type="text/python" src="norbinpo.py"></script>
+</head>
+
+<body onLoad="brython(1)">
+    <div>
+        <div style="overflow: auto;">
+            <div class="home" style="float: left;">
+                <a href='http://mathsanswers.org.uk'>
+                    <img width=45 src='../../favicon.png' style='display: block; margin-left: auto; margin-right: auto;' />Home
+                </a>
+            </div>
+            <div class="home" style="float: right;">
+                <img width=45 src='../../favicon.png' style='display: block; margin-left: auto; margin-right: auto;' />&nbsp;
+            </div>
+            <h1>
+                Graphs of Probability Distributions
+            </h1>
+        </div>
+    </div>
+    <div id="graphbox" style="float:right; width:70%; height:90%; padding-left: 2%;">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="graphview" width="100%" height="100%" style="border-style:solid; border-width:1; border-color:#000;">
+          <g id="panel" transform="translate(40,30)">
+          </g>
+        </svg>
+    </div>
+    <div style="padding: 2%; height: 90%;">
+        <table style="text-align:right">
+            <tr>
+                <td>
+                    &nbsp;
+                </td>
+                <td>
+                    <button id="cleargraph">Clear Graphs</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    n=<input id="param_n" /><br /> p=
+                    <input id="param_p" />
+                </td>
+                <td>
+                    <button id="bingraph">Draw Binomial Graph</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    μ=<input id="param_mu" />
+                </td>
+                <td>
+                    <button id="pograph">Draw Poisson Graph</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    μ=<input id="param_m" /><br /> σ²=
+                    <input id="param_v" />
+                </td>
+                <td>
+                    <button id="normgraph">Draw Normal Graph</button>
+                </td>
+            </tr>
+        </table>
+        <p>
+            This is a tool for investigating how good an approximation one distribution is to another.
+        </p>
+        <p>
+            For example, try plotting Bin(20, 0.4) and then Po(8).<br /> How close are they?<br/> What about Bin(20, 0.1) and Po(2)?
+        </p>
+        <p>
+            Others to try:<br /> Bin(20, 0.4) and N(8, 4.8)<br /> Bin(20, 0.1) and N(2, 1.8)<br /> Bin(200, 0.1) and N(20, 18)<br />
+            <br /> Po(4) and N(4, 4)<br /> Po(10) and N(10, 10)<br /> etc ...
+        </p>
+    </div>
+</body>
+
+</html>
