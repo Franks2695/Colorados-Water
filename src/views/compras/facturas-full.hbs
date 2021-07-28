@@ -2,18 +2,31 @@
     {{#each facturas}}    
         <div class="col-md-6">
             <div class="card mx-auto">
+                 <div class="card-header">
+                    <h3>FACTURA</h3><br>
+                    <h4>N° {{_id}}</h4>
+                 </div>
                 <div class="card-body">
                     <h4 class="card-title d-flex justify-content-between align-items-center">
-                        NOMBRE   : {{nombre}} <a href="/compras/edit/{{_id}}"><i class="fas fa-print"></i></a>
+                        NOMBRE   : {{nombre}} <a href="/src/archivo/FACTURA-COLORADO'S_WATER.pdf" download="FACTURA-COLORADO'S-WATER"><i class="fas fa-print"></i></a>
                     </h4>
-                    <h4 class="card-title">
+                    <h4 class="card-title d-flex justify-content-between align-items-center">
                         CÉDULA   : {{cedula}}
                     </h4>
-                    <h4 class="card-title">
+                    <h4 class="card-title d-flex justify-content-between align-items-center">
                         DIRECCIÓN: {{direccion}}
                     </h4>
-                    <h4 class="card-title">
+                    <h4 class="card-title d-flex justify-content-between align-items-center">
                         TELÉFONO : {{telefono}}
+                    </h4>
+                    <h4 class="card-title d-flex justify-content-between align-items-center">
+                        FECHA : {{fecha}}
+                    </h4>
+                    <h4 class="card-title d-flex justify-content-between align-items-center">
+                        CANTIDAD : {{cantidad}} Unidades
+                    </h4><br>
+                    <h4 class="card-title">
+                        TOTAL A PAGAR : $ {{total}}
                     </h4>
                     <form action="/compras/delete/{{_id}}?_method=DELETE" method="POST">
                         <input type="hidden" name="_method" value="DELETE">

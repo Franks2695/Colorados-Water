@@ -18,6 +18,10 @@ router.get('/productos', (req, res) => {
     res.render('compras/Bienvenida');
 });
 
+router.get('/productos-fuera', (req, res) => {
+    res.render('compras/productos');
+});
+
 router.get('/compras/predict', isAuthenticated, (req, res) => {
     res.render('compras/middle-pred');
 });

@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 
 const Factura = require('../models/Factura')
-const Comprar = require('../models/Comprar')
 
 const { isAuthenticated } = require('../helpers/out');
 
@@ -11,7 +10,7 @@ router.get('/compras/Factura', isAuthenticated, (req, res) => {
 });
 
 router.post('/compras/facturacion', isAuthenticated, async(req, res) => {
-    const { nombre, cedula, direccion, telefono } = req.body;
+    const { nombre, cedula, direccion, telefono, cantidad, fecha, total } = req.body;
     const errors = [];
 
     if (!nombre) {
@@ -26,16 +25,24 @@ router.post('/compras/facturacion', isAuthenticated, async(req, res) => {
     if (!telefono) {
         errors.push({ text: 'Por favor ingrese un numero de teléfono' });
     }
+    if (!cantidad) {
+        errors.push({ text: 'Por favor ingrese la cantidad de productos a comprar' });
+    }
     if (errors.length > 0) {
         res.render('compras/facturacion', {
             errors,
             nombre,
             cedula,
             direccion,
-            telefono
+            telefono,
+            cantidad,
+            fecha,
+            total
         });
     } else {
-        const newFactura = new Factura({ nombre, cedula, direccion, telefono });
+        const red = parseInt(cantidad) * 0.50;
+        const total = red.toFixed(2);
+        const newFactura = new Factura({ nombre, cedula, direccion, telefono, cantidad, fecha, total });
         newFactura.user = req.user.id;
         await newFactura.save();
         req.flash('success_msg', 'Todos los datos fueron aceptados')
@@ -43,25 +50,6 @@ router.post('/compras/facturacion', isAuthenticated, async(req, res) => {
     }
 
 });
-
-/* router.post('/compras/compra', async(req, res) => {
-    const { producto } = req.body;
-    const prod = [];
-
-    if (!producto) {
-        prod.push({ text: 'Por favor ingrese una cantidad' });
-    }
-    if (prod.length > 0) {
-        res.render('compras/compra', {
-            prod,
-            producto
-        });
-    } else {
-        const newComprar = new Comprar({ producto });
-        await newComprar.save();
-        res.redirect('/compras');
-    }
-}); */
 
 router.get('/compras', isAuthenticated, async(req, res) => {
     await Factura.find({ user: req.user.id })
@@ -73,27 +61,16 @@ router.get('/compras', isAuthenticated, async(req, res) => {
                         nombre: documento.nombre,
                         cedula: documento.cedula,
                         direccion: documento.direccion,
-                        telefono: documento.telefono
+                        telefono: documento.telefono,
+                        cantidad: documento.cantidad,
+                        fecha: documento.fecha,
+                        total: documento.total
                     }
                 })
             }
             res.render('compras/facturas-full', { facturas: contexto.facturas });
         })
 });
-
-/* router.get('/compras', async(req, res) => {
-    await Comprar.find()
-        .then(all_facturas => {
-            const contexto = {
-                totales: all_facturas.map(documento => {
-                    return {
-                        producto: documento.producto
-                    }
-                })
-            }
-            res.render('compras/facturas-full', { totales: contexto.totales });
-        })
-}); */
 
 router.get('/compras/edit/:id', isAuthenticated, async(req, res) => {
     const factura = await Factura.findById(req.params.id);

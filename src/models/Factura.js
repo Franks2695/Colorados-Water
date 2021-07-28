@@ -6,6 +6,8 @@ const FacturaSchema = new Schema({
     cedula: { type: Number, required: true },
     direccion: { type: String, required: true },
     telefono: { type: Number, required: true },
+    cantidad: { type: Number, required: true },
+    total: { type: Number },
     fecha: { type: Date, default: Date.now },
     user: { type: String }
 });

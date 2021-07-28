@@ -2,18 +2,21 @@
     {{#each predicciones_ventas}}    
         <div class="col-md-6">
             <div class="card mx-auto">
+                <div class="card-header">
+                    <h3>PREDEICCIÓN</h3>
+                 </div>
                 <div class="card-body">
-                    <h4 class="card-title d-flex justify-content-between align-items-center">
+                    <h4 class="card-title">
                         NÚMERO DE VENTAS   : {{ventas1}} <a href="/compras/edit/{{_id}}"><i class="fas fa-print"></i></a>
                     </h4>
                     <h4 class="card-title">
-                        MONTO DE COMPRAS   : {{monto_ventas}}
+                        MONTO DE COMPRAS   : $ {{monto_ventas}}
                     </h4><br>
                     <h4 class="card-title">
                         Según el número de ventas y el monto de compras se predice que se tendrá un monto de ventas de   : 
                     </h4><br>
                     <h4 class="card-title text-center">
-                        {{prediccion}}
+                        $ {{prediccion}}
                     </h4>
                     <form action="/compras/delete/{{_id}}?_method=DELETE" method="POST">
                         <input type="hidden" name="_method" value="DELETE">
