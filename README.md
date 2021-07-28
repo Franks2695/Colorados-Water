@@ -65,3 +65,17 @@ _Una vez hecho todo lo anterior, si esque no se tiene el archivo **package.json*
 npm install <librería> --save
 ```
 ## Ejecutando las pruebas ⚙️
+
+
+## Construido con 🛠️
+
+* [Visual Studio Code](https://code.visualstudio.com/) - IDE de desarrollo
+* [NodeJs](https://nodejs.org/es/) - Entorno de ejecución para JavaScript
+* [MongoDB](https://nodejs.org/es/) - Base de datos en la web
+* [Handlebars](https://nodejs.org/es/) - Basado en html
+
+## Autores ✒️
+
+* **Franks Sañay** - *Trabajo Inicial, Documentación* - [Franks2695](https://github.com/Franks2695)
+---
+
