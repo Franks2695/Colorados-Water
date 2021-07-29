@@ -129,4 +129,16 @@ router.get('/prediccion_compras', isAuthenticated, async(req, res) => {
         })
 });
 
+router.delete('/ventas/delete/:id', isAuthenticated, async(req, res) => {
+    await Predecir_ventas.findByIdAndDelete(req.params.id);
+    req.flash('success_msg', 'Predicción de ventas eliminada satisfactoriamente');
+    res.redirect('/prediccion_ventas');
+});
+
+router.delete('/compras1/delete/:id', isAuthenticated, async(req, res) => {
+    await Predecir_compras.findByIdAndDelete(req.params.id);
+    req.flash('success_msg', 'Predicción de compras eliminada satisfactoriamente');
+    res.redirect('/prediccion_compras');
+});
+
 module.exports = router;

@@ -9,7 +9,7 @@
                  </div>
                 <div class="card-body">
                      <h4 class="card-title d-flex justify-content-between align-items-center">
-                        NOMBRE   : {{nombre}} <a href="/src/archivo/FACTURA-COLORADO'S_WATER.pdf" download="FACTURA-COLORADO'S-WATER.pdf"><i class="fas fa-print"></i></a>
+                        NOMBRE   : {{nombre}} <a href="/src/archivo/FACTURA-COLORADO'S_WATER.pdf" download="FACTURA-COLORADO'S-WATER.pdf"><i class="fas fa-download"></i></a>
                     </h4>
                     <h4 class="card-title d-flex justify-content-between align-items-center">
                         CÉDULA   : {{cedula}}
@@ -18,10 +18,13 @@
                         DIRECCIÓN: {{direccion}}
                     </h4>
                     <h4 class="card-title d-flex justify-content-between align-items-center">
-                        TELÉFONO : {{telefono}}
+                        TELÉFONO : 0{{telefono}}
                     </h4>
                     <h4 class="card-title d-flex justify-content-between align-items-center">
                         FECHA : {{fecha}}
+                    </h4>
+                    <h4 class="card-title d-flex justify-content-between align-items-center">
+                        PRODUCTO : {{producto}} 
                     </h4>
                     <h4 class="card-title d-flex justify-content-between align-items-center">
                         CANTIDAD : {{cantidad}} Unidades
@@ -29,10 +32,10 @@
                     <h4 class="card-title">
                         TOTAL A PAGAR : $ {{total}}
                     </h4>
-                    <form action="/compras/delete/{{_id}}?_method=DELETE" method="POST">
+                    <form action="/factura/delete/{{_id}}?_method=DELETE" method="POST">
                         <input type="hidden" name="_method" value="DELETE">
                         <button class="btn btn-danger w-100 btn-sm" type="submit">
-                            ELIMINAR
+                            ELIMINAR FACTURA
                         </button>
                     </form>
                 </div>

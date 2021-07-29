@@ -1,3 +1,4 @@
+<h4>NOTA: Al comprar el producto y obtener una factura directamente desde esta página se realiza un buen gestionamiento de ventas teniendo todas las facturas de cada cliente.</h4><br>
 <div class="row">
     {{#each facturas}}    
         <div class="col-md-6">
@@ -8,7 +9,7 @@
                  </div>
                 <div class="card-body">
                     <h4 class="card-title d-flex justify-content-between align-items-center">
-                        NOMBRE   : {{nombre}} <a href="/src/archivo/FACTURA-COLORADO'S_WATER.pdf" download="FACTURA-COLORADO'S-WATER.pdf"><i class="fas fa-print"></i></a>
+                        NOMBRE   : {{nombre}} <a href="/src/archivo/FACTURA-COLORADO'S_WATER.pdf" download="FACTURA-COLORADO'S-WATER.pdf"><i class="fas fa-download"></i></a>
                     </h4>
                     <h4 class="card-title d-flex justify-content-between align-items-center">
                         CÉDULA   : {{cedula}}
@@ -17,10 +18,13 @@
                         DIRECCIÓN: {{direccion}}
                     </h4>
                     <h4 class="card-title d-flex justify-content-between align-items-center">
-                        TELÉFONO : {{telefono}}
+                        TELÉFONO : 0{{telefono}}
                     </h4>
                     <h4 class="card-title d-flex justify-content-between align-items-center">
                         FECHA : {{fecha}}
+                    </h4>
+                    <h4 class="card-title d-flex justify-content-between align-items-center">
+                        PRODUCTO : {{producto}} 
                     </h4>
                     <h4 class="card-title d-flex justify-content-between align-items-center">
                         CANTIDAD : {{cantidad}} Unidades

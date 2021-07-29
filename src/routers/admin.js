@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
+//const passport1 = require('./config/passport1');
+
 const User = require('../models/user');
 const Admin = require('../models/admin');
 const Factura = require('../models/Factura')
@@ -89,12 +91,25 @@ router.get('/facturas', async(req, res) => {
                         telefono: documento.telefono,
                         cantidad: documento.cantidad,
                         fecha: documento.fecha,
-                        total: documento.total
+                        total: documento.total,
+                        producto: documento.producto
                     }
                 })
             }
             res.render('compras/facturas', { facts: contexto.facts });
         })
+});
+
+router.delete('/admin/delete/:id', isAuthenticated, async(req, res) => {
+    await User.findByIdAndDelete(req.params.id);
+    req.flash('success_msg', 'Usuario eliminado satisfactoriamente');
+    res.redirect('/usuarios');
+});
+
+router.delete('/factura/delete/:id', isAuthenticated, async(req, res) => {
+    await Factura.findByIdAndDelete(req.params.id);
+    req.flash('success_msg', 'Factura eliminada satisfactoriamente');
+    res.redirect('/facturas');
 });
 
 module.exports = router;

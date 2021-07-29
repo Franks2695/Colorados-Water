@@ -7,7 +7,7 @@
                  </div>
                 <div class="card-body">
                     <h4 class="card-title">
-                        NÚMERO DE VENTAS   : {{ventas1}} <a href="/compras/edit/{{_id}}"><i class="fas fa-print"></i></a>
+                        NÚMERO DE VENTAS   : {{ventas1}} 
                     </h4>
                     <h4 class="card-title">
                         MONTO DE COMPRAS   : $ {{monto_ventas}}
@@ -18,10 +18,10 @@
                     <h4 class="card-title text-center">
                         $ {{prediccion}}
                     </h4>
-                    <form action="/compras/delete/{{_id}}?_method=DELETE" method="POST">
+                    <form action="/ventas/delete/{{_id}}?_method=DELETE" method="POST">
                         <input type="hidden" name="_method" value="DELETE">
                         <button class="btn btn-danger w-100 btn-sm" type="submit">
-                            ELIMINAR
+                            ELIMINAR PREDICCIÓN
                         </button>
                     </form>
                 </div>

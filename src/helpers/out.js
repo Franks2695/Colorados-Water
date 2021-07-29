@@ -5,7 +5,7 @@ helpers.isAuthenticated = (req, res, next) => {
         return next();
     }
     req.flash('error_msg', 'No permitido, por favor inicie sesión primero');
-    res.redirect('/users/signin');
+    res.redirect('/compras/users');
 };
 
 module.exports = helpers;

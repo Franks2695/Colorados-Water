@@ -10,7 +10,7 @@ router.get('/compras/Factura', isAuthenticated, (req, res) => {
 });
 
 router.post('/compras/facturacion', isAuthenticated, async(req, res) => {
-    const { nombre, cedula, direccion, telefono, cantidad, fecha, total } = req.body;
+    const { nombre, cedula, direccion, telefono, cantidad, fecha, total, producto } = req.body;
     const errors = [];
 
     if (!nombre) {
@@ -37,12 +37,13 @@ router.post('/compras/facturacion', isAuthenticated, async(req, res) => {
             telefono,
             cantidad,
             fecha,
-            total
+            total,
+            producto
         });
     } else {
         const red = parseInt(cantidad) * 0.50;
         const total = red.toFixed(2);
-        const newFactura = new Factura({ nombre, cedula, direccion, telefono, cantidad, fecha, total });
+        const newFactura = new Factura({ nombre, cedula, direccion, telefono, cantidad, fecha, total, producto });
         newFactura.user = req.user.id;
         await newFactura.save();
         req.flash('success_msg', 'Todos los datos fueron aceptados')
@@ -64,7 +65,8 @@ router.get('/compras', isAuthenticated, async(req, res) => {
                         telefono: documento.telefono,
                         cantidad: documento.cantidad,
                         fecha: documento.fecha,
-                        total: documento.total
+                        total: documento.total,
+                        producto: documento.producto
                     }
                 })
             }

@@ -11,6 +11,7 @@ const passport = require('passport');
 const app = express();
 require('./databaseMDB');
 require('./config/passport');
+//require('./config/passport1');
 
 // Settings
 app.set('port', process.env.PORT || 3000);

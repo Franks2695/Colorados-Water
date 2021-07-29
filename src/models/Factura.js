@@ -9,6 +9,7 @@ const FacturaSchema = new Schema({
     cantidad: { type: Number, required: true },
     total: { type: Number },
     fecha: { type: Date, default: Date.now },
+    producto: { type: String, default: 'Aguas Medicinales' },
     user: { type: String }
 });
 
