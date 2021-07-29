@@ -49,6 +49,7 @@ app.use((req, res, next) => {
 app.use(require('./routers/index'));
 app.use(require('./routers/users'));
 app.use(require('./routers/factura'));
+app.use(require('./routers/admin'));
 
 // Archivos Estáticos
 app.use(express.static(path.join(__dirname, 'public')));

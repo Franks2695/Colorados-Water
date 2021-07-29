@@ -18,6 +18,10 @@ router.get('/productos', (req, res) => {
     res.render('compras/Bienvenida');
 });
 
+router.get('/proveedor', (req, res) => {
+    res.render('compras/proveedor');
+});
+
 router.get('/productos-fuera', (req, res) => {
     res.render('compras/productos');
 });

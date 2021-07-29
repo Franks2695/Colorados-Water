@@ -2,9 +2,17 @@ const express = require('express');
 const router = express.Router();
 
 const User = require('../models/user');
+const Admin = require('../models/admin');
+
+const { isAuthenticated } = require('../helpers/out');
 
 const passport = require('passport');
 
+router.get('/compras/users', (req, res) => {
+    res.render('compras/middle-users');
+});
+
+// USUARIOS CLIENTES
 router.get('/users/signin', (req, res) => {
     res.render('users/signin');
 });
@@ -58,7 +66,7 @@ router.post('/users/signup', async(req, res) => {
 
 router.get('/users/logout', (req, res) => {
     req.logout();
-    res.redirect('/');
+    res.redirect('/compras/users');
 });
 
 module.exports = router;

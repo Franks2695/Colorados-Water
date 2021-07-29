@@ -1,5 +1,6 @@
+{{> nave-admin }}
 <div class="row">
-    {{#each facturas}}    
+    {{#each facts}}    
         <div class="col-md-6">
             <div class="card mx-auto">
                  <div class="card-header">
@@ -7,7 +8,7 @@
                     <h4>N° {{_id}}</h4>
                  </div>
                 <div class="card-body">
-                    <h4 class="card-title d-flex justify-content-between align-items-center">
+                     <h4 class="card-title d-flex justify-content-between align-items-center">
                         NOMBRE   : {{nombre}} <a href="/src/archivo/FACTURA-COLORADO'S_WATER.pdf" download="FACTURA-COLORADO'S-WATER.pdf"><i class="fas fa-print"></i></a>
                     </h4>
                     <h4 class="card-title d-flex justify-content-between align-items-center">
@@ -42,7 +43,7 @@
         <div class="card text-center">
             <div class="card-body">
                 <p class="lead">No hay facturas aún</p>
-                <a href="/productos" class="btn btn-success w-100">Haz tu compra!</a>
+                <a href="/productos" class="btn btn-success w-100">Realiza una compra!</a>
             </div>
         </div>
     {{/each}}

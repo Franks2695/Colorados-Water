@@ -1,8 +1,11 @@
 const passport = require('passport');
+//const passport1 = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 
 const User = require('../models/user');
+const Admin = require('../models/admin');
 
+//USER
 passport.use(new LocalStrategy({
     usernameField: 'email'
 }, async(email, password, done) => {
@@ -27,4 +30,4 @@ passport.deserializeUser((id, done) => {
     User.findById(id, (err, user) => {
         done(err, user);
     });
-})
+});

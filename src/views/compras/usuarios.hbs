@@ -1,0 +1,39 @@
+{{> nave-admin }}
+<div class="row">
+    {{#each users}}    
+        <div class="col-md-6">
+            <div class="card mx-auto">
+                 <div class="card-header">
+                    <h3>USUARIO</h3><br>
+                 </div>
+                <div class="card-body">
+                     <h4 class="card-title d-flex justify-content-between align-items-center">
+                        ID   : {{_id}} 
+                    </h4>
+                    <h4 class="card-title d-flex justify-content-between align-items-center">
+                        NOMBRE   : {{name}} 
+                    </h4>
+                    <h4 class="card-title d-flex justify-content-between align-items-center">
+                        CORREO   : {{email}}
+                    </h4>
+                    <form action="/compras/delete/{{_id}}?_method=DELETE" method="POST">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <button class="btn btn-danger w-100 btn-sm" type="submit">
+                            ELIMINAR
+                        </button>
+                    </form>
+                </div>
+            </div><br>
+        </div>
+
+    {{else}}
+        <div class="card text-center">
+            <div class="card-body">
+                <p class="lead">No hay usuarios aún</p>
+                <a href="/compras/middle-users" class="btn btn-success w-100">Registra un nuevo usuario!</a>
+            </div>
+        </div>
+    {{/each}}
+
+    
+</div>
